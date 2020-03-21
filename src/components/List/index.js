@@ -14,6 +14,19 @@ export default function List (props) {
        description="This is a description of the listing"
        location="East Village, Manhattan"
        timeframe="next weekend"
+       type={type}
+      />
+      <Listing
+        description="This is a description of another listing"
+        location="Red Hook, Brooklyn"
+        timeframe="ASAP"
+        type={type}
+      />
+      <Listing
+        description="Moar OREOs pls"
+        location="Roosevelt Island"
+        timeframe="never b/c you can't get here"
+        type={type}
       />
     </>
   );
