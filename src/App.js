@@ -1,24 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import List from './List';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>LMCC Community Assistance</h1>
+      <p>A place to offer and ask for help</p>
+      {/* 
+        lists - toggle/sort
+          needs - listing components
+          offers - listing components
+       */}
+      <List />
+      <p>Send us an <a href="/#">email address</a> to respond</p>
+      <p>Submit a request or offer <a href="/#">link to form here</a></p>
     </div>
   );
 }
