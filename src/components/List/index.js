@@ -32,6 +32,7 @@ export default function List (props) {
   return (
     <>
     <h3>{title}</h3>
+    <p>Optionally filter by category</p>
     <Toggle
       handleChange={setCategory}
       options={categories}

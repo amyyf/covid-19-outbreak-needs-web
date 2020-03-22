@@ -8,6 +8,7 @@ export default function Toggle (props) {
   const {
     handleChange,
     options,
+    prependOptionText,
     selected
   } = props;
 
@@ -28,7 +29,7 @@ export default function Toggle (props) {
           value={option}
           variant="light"
         >
-          See {option}
+          {prependOptionText + option}
         </ToggleButton>
       ))}
     </ToggleButtonGroup>
@@ -36,8 +37,13 @@ export default function Toggle (props) {
   )
 }
 
+Toggle.defaultProps = {
+  prependOptionText: ''
+}
+
 Toggle.propTypes = {
   handleChange: PropTypes.func.isRequired,
   options: PropTypes.array.isRequired,
+  prependOptionText: PropTypes.string,
   selected: PropTypes.string.isRequired
 }
