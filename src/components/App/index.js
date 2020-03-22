@@ -2,6 +2,7 @@ import React , { useState } from 'react';
 import './App.css';
 
 import AlertWrapper from '../AlertWrapper';
+import api from '../../api';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import List from '../List';
@@ -46,7 +47,10 @@ function App() {
         options={toggleOptions}
         selected={type}
       />
-      <List type={type} />
+      <List
+        data={api.getData()}
+        type={type}
+      />
       <AlertWrapper
         link={responseLink}
         linkText="Email us"
