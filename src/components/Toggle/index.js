@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 
@@ -32,4 +34,10 @@ export default function Toggle (props) {
     </ToggleButtonGroup>
     </>
   )
+}
+
+Toggle.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  options: PropTypes.array.isRequired,
+  selected: PropTypes.string.isRequired
 }

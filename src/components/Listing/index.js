@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.css';
+
 import ListGroup from 'react-bootstrap/ListGroup';
 
 export default function Listing (props) {
@@ -18,4 +20,11 @@ export default function Listing (props) {
         </p>
     </ListGroup.Item>
   )
+}
+
+Listing.propTypes = {
+  description: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  timeframe: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired
 }

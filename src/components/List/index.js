@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Listing from '../Listing';
 import ListGroup from 'react-bootstrap/ListGroup';
 
@@ -35,4 +37,8 @@ export default function List (props) {
     </ListGroup>
     </>
   );
+}
+
+List.propTypes = {
+  type: PropTypes.string.isRequired,
 }
