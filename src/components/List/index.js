@@ -20,19 +20,19 @@ export default function List (props) {
         description="This is a description of the listing"
         location="East Village, Manhattan"
         timeframe="next weekend"
-        type={type}
+        type="request"
       />
       <Listing
         description="This is a description of another listing"
         location="Red Hook, Brooklyn"
         timeframe="ASAP"
-        type={type}
+        type="offer"
       />
       <Listing
         description="Moar OREOs pls"
         location="Roosevelt Island"
         timeframe="never b/c you can't get here"
-        type={type}
+        type="request"
       />
     </ListGroup>
     </>
