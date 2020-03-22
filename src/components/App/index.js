@@ -10,9 +10,11 @@ import Row from 'react-bootstrap/Row';
 import Toggle from '../Toggle';
 
 function App() {
-  const toggleOptions = ['all', 'requests', 'offers'];
   const formLink = 'https://docs.google.com/forms/d/1j_Cha4mhNiegs8mDWGcPGQczYlMxnzYiQw8uKAK7ujY/viewform?edit_requested=true#responses';
   const responseLink = '/#';
+  const offerString = 'Offering something';
+  const requestString = 'Request for something';
+  const toggleOptions = ['all', 'request', 'offer'];
   const [type, setType] = useState('all');
 
   return (
@@ -49,6 +51,8 @@ function App() {
       />
       <List
         data={api.getData()}
+        offerString={offerString}
+        requestString={requestString}
         type={type}
       />
       <AlertWrapper
