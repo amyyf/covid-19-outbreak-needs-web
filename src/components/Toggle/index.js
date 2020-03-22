@@ -20,13 +20,13 @@ export default function Toggle (props) {
     >
       {options.map(option => (
         <ToggleButton 
-          key={`radio-${option.type}`}
-          id={option.type}
+          key={`radio-${option}`}
+          id={option}
           name="type"
-          value={option.type}
+          value={option}
           variant="light"
         >
-          See {option.labelText} help
+          See {option}
         </ToggleButton>
       ))}
     </ToggleButtonGroup>

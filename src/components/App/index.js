@@ -5,17 +5,8 @@ import List from '../List';
 import Toggle from '../Toggle';
 
 function App() {
-  const toggleOptions = [
-    {
-      labelText: 'requests for',
-      type: 'requests'
-    },
-    {
-      labelText: 'offers to',
-      type: 'offers'
-    }
-  ];
-  const [type, setType] = useState('requests');
+  const toggleOptions = ['all', 'requests', 'offers'];
+  const [type, setType] = useState('all');
 
   return (
     <Container className="App">
