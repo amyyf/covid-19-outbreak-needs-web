@@ -8,7 +8,7 @@ export default function List (props) {
 
   return (
     <>
-    <h2>{title}</h2>
+    <h3>{title}</h3>
 
     {/* const listings = api.getListingsByType(type); */}
     {/* listings.map(listing => <Listing props />); */}
