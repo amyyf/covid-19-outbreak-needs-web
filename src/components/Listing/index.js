@@ -10,7 +10,6 @@ export default function Listing (props) {
     category,
     description,
     location,
-    timeframe,
     type
   } = props;
 
@@ -32,7 +31,6 @@ export default function Listing (props) {
       <p>{symbolWrapper} {description}</p>
       <p className="text-secondary">
         <span className="pr-4">{location}</span>
-        <span className="pr-4">When: {timeframe}</span>
         <span>Category: {category}</span>
       </p>
     </ListGroup.Item>
@@ -43,6 +41,5 @@ Listing.propTypes = {
   category: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  timeframe: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired
 }

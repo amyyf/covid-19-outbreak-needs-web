@@ -8,26 +8,27 @@ import Toggle from '../Toggle';
 import { useEffect, useState } from 'react';
 
 export default function List (props) {
-  const { 
+  let { 
     categories,
     offerString,
     requestString,
     type
    } = props;
-  const title = type[0].toUpperCase() + type.slice(1);
-  const typeConvert = {};
+  let title = type[0].toUpperCase() + type.slice(1);
+  let typeConvert = {};
   typeConvert[offerString] = 'offers';
   typeConvert[requestString] = 'requests';
 
-  const [category, setCategory] = useState('All');
-  const [data, setData] = useState([]);
+  let [category, setCategory] = useState('All');
+  let [data, setData] = useState([]);
   useEffect(() => {
     api.getData()
       .then(data => setData(data));
   }, [])
 
-  const filteredData = type === 'all' ? data : data.filter(listing => typeConvert[listing.type] === type);
-  const filteredDataByCategory = category === 'All' ? filteredData : filteredData.filter(listing => listing.category === category);
+  let filteredData = type === 'all' ? data : data.filter(listing => typeConvert[listing.type] === type);
+  let filteredDataByCategory = category === 'All' ? filteredData : filteredData.filter(listing => listing.category === category);
+  filteredDataByCategory = filteredDataByCategory.sort((a, b) => a.timestamp > b.timestamp ? 1 : -1);
 
   return (
     <>
@@ -44,7 +45,6 @@ export default function List (props) {
         description={listing.details}
         key={listing.location}
         location={listing.location}
-        timeframe="soon"
         type={typeConvert[listing.type]}
       />)}
     </ListGroup>
