@@ -14,11 +14,11 @@ export default function Listing (props) {
   } = props;
 
   let symbol, variant;
-  if (type === 'request') {
+  if (type === 'requests') {
     symbol = 'R';
     variant = "warning"
   }
-  if (type === 'offer') {
+  if (type === 'offers') {
     symbol = 'O';
     variant = "success";
   }

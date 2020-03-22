@@ -1,26 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import api from '../../api';
 import Listing from '../Listing';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 export default function List (props) {
   const { 
-    data,
     offerString,
     requestString,
     type
    } = props;
   const title = type[0].toUpperCase() + type.slice(1);
   const typeConvert = {};
-  typeConvert[offerString] = 'offer';
-  typeConvert[requestString] = 'request';
+  typeConvert[offerString] = 'offers';
+  typeConvert[requestString] = 'requests';
+
+  const data = api.getData();
+  const filteredData = type === 'all' ? data : data.filter(listing => typeConvert[listing.type] === type);
 
   return (
     <>
     <h3>{title}</h3>
     <ListGroup className="mb-3">
-      {data.map(listing => <Listing
+      {filteredData.map(listing => <Listing
         category={listing.category}
         description={listing.details}
         key={listing.location}
@@ -34,7 +37,6 @@ export default function List (props) {
 }
 
 List.propTypes = {
-  data: PropTypes.array.isRequired,
   offerString: PropTypes.string.isRequired,
   requestString: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,

@@ -2,7 +2,6 @@ import React , { useState } from 'react';
 import './App.css';
 
 import AlertWrapper from '../AlertWrapper';
-import api from '../../api';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import List from '../List';
@@ -14,7 +13,7 @@ function App() {
   const responseLink = '/#';
   const offerString = 'Offering something';
   const requestString = 'Request for something';
-  const toggleOptions = ['all', 'request', 'offer'];
+  const toggleOptions = ['all', 'requests', 'offers'];
   const [type, setType] = useState('all');
 
   return (
@@ -50,7 +49,6 @@ function App() {
         selected={type}
       />
       <List
-        data={api.getData()}
         offerString={offerString}
         requestString={requestString}
         type={type}

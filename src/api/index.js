@@ -11,9 +11,9 @@ const renameKeys = {
 //   return data;
 // }
 
-function formatData () {
-  const keysArr = data.data.shift();
-  const formattedData = data.data.map(listing => {
+function formatData (data) {
+  const keysArr = data[0];
+  const formattedData = data.slice(1).map(listing => {
     return listing.reduce((obj, item, index) => {
       const key = renameKeys[keysArr[index]];
       obj[key] = item;
@@ -25,7 +25,7 @@ function formatData () {
 
 const api = {
   getData () {
-    return formatData();
+    return formatData(data.data);
   }
 }
 
