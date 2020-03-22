@@ -11,6 +11,7 @@ import Toggle from '../Toggle';
 function App() {
   const formLink = 'https://docs.google.com/forms/d/1j_Cha4mhNiegs8mDWGcPGQczYlMxnzYiQw8uKAK7ujY/viewform?edit_requested=true#responses';
   const responseLink = '/#';
+  const categories = ['All', 'Food', 'Childcare', 'Delivery'];
   const offerString = 'Offering something';
   const requestString = 'Request for something';
   const toggleOptions = ['all', 'requests', 'offers'];
@@ -49,6 +50,7 @@ function App() {
         selected={type}
       />
       <List
+        categories={categories}
         offerString={offerString}
         requestString={requestString}
         type={type}

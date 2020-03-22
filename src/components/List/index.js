@@ -4,9 +4,12 @@ import PropTypes from 'prop-types';
 import api from '../../api';
 import Listing from '../Listing';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Toggle from '../Toggle';
+import { useState } from 'react';
 
 export default function List (props) {
   const { 
+    categories,
     offerString,
     requestString,
     type
@@ -16,14 +19,22 @@ export default function List (props) {
   typeConvert[offerString] = 'offers';
   typeConvert[requestString] = 'requests';
 
+  const [category, setCategory] = useState('All');
+
   const data = api.getData();
   const filteredData = type === 'all' ? data : data.filter(listing => typeConvert[listing.type] === type);
+  const filteredDataByCategory = category === 'All' ? filteredData : filteredData.filter(listing => listing.category === category);
 
   return (
     <>
     <h3>{title}</h3>
+    <Toggle
+      handleChange={setCategory}
+      options={categories}
+      selected={category}
+    />
     <ListGroup className="mb-3">
-      {filteredData.map(listing => <Listing
+      {filteredDataByCategory.map(listing => <Listing
         category={listing.category}
         description={listing.details}
         key={listing.location}
@@ -37,6 +48,7 @@ export default function List (props) {
 }
 
 List.propTypes = {
+  categories: PropTypes.array.isRequired,
   offerString: PropTypes.string.isRequired,
   requestString: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,

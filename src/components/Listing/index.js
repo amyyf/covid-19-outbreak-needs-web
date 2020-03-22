@@ -7,6 +7,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 export default function Listing (props) {
   const {
+    category,
     description,
     location,
     timeframe,
@@ -31,13 +32,15 @@ export default function Listing (props) {
       <p>{symbolWrapper} {description}</p>
       <p className="text-secondary">
         <span className="pr-4">{location}</span>
-        <span>When: {timeframe}</span>
+        <span className="pr-4">When: {timeframe}</span>
+        <span>Category: {category}</span>
       </p>
     </ListGroup.Item>
   )
 }
 
 Listing.propTypes = {
+  category: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   timeframe: PropTypes.string.isRequired,
