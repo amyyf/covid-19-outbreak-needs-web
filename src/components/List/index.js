@@ -1,20 +1,24 @@
 import React from 'react';
 import Listing from '../Listing';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 export default function List (props) {
   const { type } = props;
+  const title = type[0].toUpperCase() + type.slice(1);
+
   return (
     <>
-      <h2>{type}</h2>
-      {/*
-      const listings = api.getListingsByType(type);
-      listings.map(listing => <Listing props />);
-       */}
+    <h2>{title}</h2>
+
+    {/* const listings = api.getListingsByType(type); */}
+    {/* listings.map(listing => <Listing props />); */}
+    {/* put inside <Row> */}
+    <ListGroup className="mb-3">
       <Listing
-       description="This is a description of the listing"
-       location="East Village, Manhattan"
-       timeframe="next weekend"
-       type={type}
+        description="This is a description of the listing"
+        location="East Village, Manhattan"
+        timeframe="next weekend"
+        type={type}
       />
       <Listing
         description="This is a description of another listing"
@@ -28,6 +32,7 @@ export default function List (props) {
         timeframe="never b/c you can't get here"
         type={type}
       />
+    </ListGroup>
     </>
   );
 }

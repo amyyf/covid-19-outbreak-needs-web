@@ -1,4 +1,6 @@
 import React from 'react';
+import './index.css';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 export default function Listing (props) {
   const {
@@ -8,14 +10,12 @@ export default function Listing (props) {
     type
   } = props;
   return (
-    <>
-      <h3>Listing</h3>
-      <div>
-        <p>Just showing {type} type so we can see the change</p>
-        <p>Description: {description}</p>
-        <p>Location: {location}</p>
-        <p>Timeframe: {timeframe}</p>
-      </div>
-    </>
+    <ListGroup.Item>
+        <p>{description} for {type}</p>
+        <p className="text-secondary">
+          <span className="pr-4">{location}</span>
+          <span>When: {timeframe}</span>
+        </p>
+    </ListGroup.Item>
   )
 }

@@ -1,28 +1,35 @@
 import React from 'react';
+import ToggleButton from 'react-bootstrap/ToggleButton';
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 
 export default function Toggle (props) {
   const {
+    handleChange,
     options,
-    onChange,
     selected
   } = props;
 
   return (
-    <fieldset>
-      <legend>I want to...</legend>
+    <>
+    <ToggleButtonGroup
+      className="mb-3"
+      name="type"
+      onChange={handleChange}
+      type="radio"
+      value={selected}
+    >
       {options.map(option => (
-        <label htmlFor={option.type} key={`radio-${option.type}`}>
-          <input
-            checked={selected === option.type}
-            id={option.type}
-            type="radio"
-            name="type"
-            onChange={() => onChange(option.type)}
-            value={option.type}
-          />
-          See who {option.labelText} help
-        </label>
+        <ToggleButton 
+          key={`radio-${option.type}`}
+          id={option.type}
+          name="type"
+          value={option.type}
+          variant="light"
+        >
+          See {option.labelText} help
+        </ToggleButton>
       ))}
-    </fieldset>
+    </ToggleButtonGroup>
+    </>
   )
 }
