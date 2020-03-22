@@ -1,15 +1,17 @@
-import data from './example.json';
+const endpoint = 'https://us-central1-outbreak-needs.cloudfunctions.net/getListings';
 
 const renameKeys = {
-  "General location": 'location',
-  "Type": 'type',
-  "Category": 'category',
-  "Details": 'details'
+  'Timestamp': 'timestamp',
+  'General location': 'location',
+  'Type': 'type',
+  'Category': 'category',
+  'Details': 'details'
 };
 
-// function fetchData () {
-//   return data;
-// }
+function fetchData () {
+  return fetch(endpoint)
+    .then(res => res.json());
+}
 
 function formatData (data) {
   const keysArr = data[0];
@@ -25,7 +27,8 @@ function formatData (data) {
 
 const api = {
   getData () {
-    return formatData(data.data);
+    return fetchData()
+      .then(res => formatData(res.data));
   }
 }
 

@@ -5,7 +5,7 @@ import api from '../../api';
 import Listing from '../Listing';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Toggle from '../Toggle';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function List (props) {
   const { 
@@ -20,8 +20,12 @@ export default function List (props) {
   typeConvert[requestString] = 'requests';
 
   const [category, setCategory] = useState('All');
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    api.getData()
+      .then(data => setData(data));
+  }, [])
 
-  const data = api.getData();
   const filteredData = type === 'all' ? data : data.filter(listing => typeConvert[listing.type] === type);
   const filteredDataByCategory = category === 'All' ? filteredData : filteredData.filter(listing => listing.category === category);
 
