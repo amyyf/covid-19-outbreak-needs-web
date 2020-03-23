@@ -1,34 +1,68 @@
-import React , { useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
+
+import AlertWrapper from '../AlertWrapper';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 import List from '../List';
+import Row from 'react-bootstrap/Row';
 import Toggle from '../Toggle';
 
 function App() {
-  const toggleOptions = [
-    {
-      labelText: 'needs',
-      type: 'needs'
-    },
-    {
-      labelText: 'has offered',
-      type: 'offers'
-    }
-  ];
-  const [type, setType] = useState('needs');
+  const formLink = 'https://docs.google.com/forms/d/1j_Cha4mhNiegs8mDWGcPGQczYlMxnzYiQw8uKAK7ujY/viewform?edit_requested=true#responses';
+  const responseLink = '/#';
+  const categories = ['All', 'Food', 'Childcare', 'Academic', 'Misc.'];
+  const offerString = 'Offering something';
+  const requestString = 'Request for something';
+  const toggleOptions = ['all', 'requests', 'offers'];
+  const [type, setType] = useState('all');
 
   return (
-    <div className="App">
-      <h1>LMCC Community Assistance</h1>
-      <p>A place to offer and ask for help</p>
+    <Container className="App">
+      <header className="border-bottom mb-3">
+        <h1>LMCC Community Assistance</h1>
+        <p className="lead">A place to offer and ask for help</p>
+      </header>
+      <Container>
+        <Row>
+          <Col>
+            <AlertWrapper
+              link={formLink}
+              linkText="here"
+              textBeforeLink="Submit a request or offer"
+              variant="info"
+            />
+          </Col>
+          <Col>
+            <AlertWrapper
+              link={responseLink}
+              linkText="Email us"
+              textAfterLink="to respond to a listing"
+              variant="info"
+            />
+          </Col>
+        </Row>
+      </Container>
+      <h2>Listings</h2>
       <Toggle
-        onChange={setType}
+        handleChange={setType}
         options={toggleOptions}
+        prependOptionText="See "
         selected={type}
       />
-      <List type={type} />
-      <p>Send us an <a href="/#">email address</a> to respond</p>
-      <p>Submit a request or offer <a href="/#">link to form here</a></p>
-    </div>
+      <List
+        categories={categories}
+        offerString={offerString}
+        requestString={requestString}
+        type={type}
+      />
+      <AlertWrapper
+        link={responseLink}
+        linkText="Email us"
+        textAfterLink="to respond to a listing"
+        variant="info"
+      />
+    </Container>
   );
 }
 

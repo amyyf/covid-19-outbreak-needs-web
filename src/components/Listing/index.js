@@ -1,21 +1,45 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import './index.css';
+
+import Badge from 'react-bootstrap/Badge';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 export default function Listing (props) {
   const {
+    category,
     description,
     location,
-    timeframe,
     type
   } = props;
+
+  let symbol, variant;
+  if (type === 'requests') {
+    symbol = 'R';
+    variant = "warning"
+  }
+  if (type === 'offers') {
+    symbol = 'O';
+    variant = "success";
+  }
+  const symbolWrapper = (
+    <Badge variant={variant}>{symbol}</Badge> 
+  );
+
   return (
-    <>
-      <h3>Listing</h3>
-      <div>
-        <p>Just showing {type} type so we can see the change</p>
-        <p>Description: {description}</p>
-        <p>Location: {location}</p>
-        <p>Timeframe: {timeframe}</p>
-      </div>
-    </>
+    <ListGroup.Item>
+      <p>{symbolWrapper} {description}</p>
+      <p className="text-secondary">
+        <span className="pr-4">{location}</span>
+        <span>Category: {category}</span>
+      </p>
+    </ListGroup.Item>
   )
+}
+
+Listing.propTypes = {
+  category: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired
 }
