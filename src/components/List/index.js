@@ -1,34 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import api from '../../api';
 import Listing from '../Listing';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Toggle from '../Toggle';
-import { useEffect, useState } from 'react';
 
 export default function List (props) {
-  let { 
+  const { 
     categories,
     offerString,
     requestString,
     type
    } = props;
-  let title = type[0].toUpperCase() + type.slice(1);
-  let typeConvert = {};
+  const title = type[0].toUpperCase() + type.slice(1);
+  const typeConvert = {};
   typeConvert[offerString] = 'offers';
   typeConvert[requestString] = 'requests';
 
-  let [category, setCategory] = useState('All');
-  let [data, setData] = useState([]);
+  const [category, setCategory] = useState('All');
+  const [data, setData] = useState([]);
   useEffect(() => {
     api.getData()
       .then(data => setData(data));
   }, [])
 
-  let filteredData = type === 'all' ? data : data.filter(listing => typeConvert[listing.type] === type);
-  let filteredDataByCategory = category === 'All' ? filteredData : filteredData.filter(listing => listing.category === category);
-  filteredDataByCategory = filteredDataByCategory.sort((a, b) => a.timestamp > b.timestamp ? 1 : -1);
+  const filteredData = type === 'all' ? data : data.filter(listing => typeConvert[listing.type] === type);
+  const filteredDataByCategory = category === 'All' ? filteredData : filteredData.filter(listing => listing.category === category);
+  filteredDataByCategory.sort((a, b) => a.timestamp > b.timestamp ? 1 : -1);
 
   return (
     <>
