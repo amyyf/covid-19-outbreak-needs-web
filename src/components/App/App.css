@@ -1,3 +1,4 @@
 .App {
+  /* This is to prevent the page from scrolling when transitioning from a long list to a short one */
   min-height: 150vh;
 }
