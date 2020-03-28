@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import api from '../../api';
 import Listing from '../Listing';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Loading from '../Loading';
 import Toggle from '../Toggle';
 
 export default function List (props) {
@@ -28,6 +29,10 @@ export default function List (props) {
   const filteredData = type === 'all' ? data : data.filter(listing => typeConvert[listing.type] === type);
   const filteredDataByCategory = category === 'All' ? filteredData : filteredData.filter(listing => listing.category === category);
   filteredDataByCategory.sort((a, b) => a.timestamp > b.timestamp ? 1 : -1);
+
+  if (!filteredDataByCategory.length) {
+    return <Loading />
+  }
 
   return (
     <>
