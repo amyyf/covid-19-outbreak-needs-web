@@ -1,6 +1,14 @@
+# What and why
 
+This message board tool was built in response to the outbreak of COVID-19 as a way to quickly connect people who need help with others in their community who are available. Needs and offers are submitted through a Google Form to a Google Sheet; replies to the posted needs and offers are sent to an email address. An administrator manages the workflow of approving submissions to be published and connecting email responders to the original posters.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and is hosted on [Firebase](https://firebase.google.com/docs/hosting/quickstart).
+The goal here was to get up and running as quickly as possible, maximizing the use of existing tools and frameworks. In future, we'd like to automate this process, if it becomes clear that the tool could be useful beyond this original problem and/or if manual management proves to be too arduous.
+
+# Details
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses [React Bootstrap](https://react-bootstrap.netlify.com/) for styling.
+
+It is hosted with [Firebase](https://firebase.google.com/docs/hosting/quickstart).
 
 ## Available Scripts
 
@@ -16,7 +24,7 @@ You will also see any lint errors in the console.
 
 ### `npm run deploy`
 
-Deploys the app to Firebase.
+Deploys the app to Firebase. Note the CLI will need to be [installed](https://firebase.google.com/docs/hosting/quickstart#install-cli) and the project [initialized](https://firebase.google.com/docs/hosting/quickstart#initialize) before deployment is possible.
 
 ### `npm test`
 
@@ -33,42 +41,18 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Configuring the tool
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+In `src/components/App/inded.js`, a few config variables are set:
+- `formLink`: the Google form where needs and offers will be submitted
+- `responseLink`: the email address where responses will go
+- `offerString`: this will be determined by the form field for type of request
+- `requestString`: this will be determined by the form field heading for type of request
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+In `/src/api/index.js`, two more settings:
+- `endpoint`: hits a function in Firebase that returns the data from the sheet
+- `renameKeys`: converts the sheets response keys into more readable keys
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
