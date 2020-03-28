@@ -29,10 +29,8 @@ export default function Listing (props) {
   return (
     <ListGroup.Item>
       <p>{symbolWrapper} {description}</p>
-      <p className="text-secondary">
-        <span className="pr-4">{location}</span>
-        <span>Category: {category}</span>
-      </p>
+      <p className="mb-0"><span className="text-secondary">Category:</span> {category}</p>
+      <p className="mb-0"><span className="text-secondary">Location:</span> {location}</p>
     </ListGroup.Item>
   )
 }
