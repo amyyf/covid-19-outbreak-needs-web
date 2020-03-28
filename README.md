@@ -43,7 +43,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Configuring the tool
 
-In `src/components/App/inded.js`, a few config variables are set:
+A few config variables are set in `src/config.json`:
 - `formLink`: the Google form where needs and offers will be submitted
 - `responseEmail`: the email address where responses will go
 - `offerString`: this will be determined by the form field for type of request

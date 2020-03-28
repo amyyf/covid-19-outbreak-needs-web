@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 import './App.css';
 
+import config from '../../config.json';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import List from '../List';
 import Toggle from '../Toggle';
 
 function App() {
-  const formLink = 'https://docs.google.com/forms/d/1j_Cha4mhNiegs8mDWGcPGQczYlMxnzYiQw8uKAK7ujY/viewform?edit_requested=true#responses';
-  const responseEmail = 'tktktk';
-  const categories = ['All', 'Food', 'Childcare', 'Academic', 'Misc.'];
-  const offerString = 'Offering something';
-  const requestString = 'Request for something';
+  // TODO: update responseEmail in config
+  const {
+    formLink,
+    responseEmail,
+    categories,
+    offerString,
+    requestString
+  } = config;
   const toggleOptions = ['all', 'needs', 'offers'];
   const [type, setType] = useState('all');
 
