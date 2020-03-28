@@ -14,7 +14,7 @@ function App() {
   const categories = ['All', 'Food', 'Childcare', 'Academic', 'Misc.'];
   const offerString = 'Offering something';
   const requestString = 'Request for something';
-  const toggleOptions = ['all', 'requests', 'offers'];
+  const toggleOptions = ['all', 'needs', 'offers'];
   const [type, setType] = useState('all');
 
   return (
@@ -29,7 +29,7 @@ function App() {
             <AlertWrapper
               link={formLink}
               linkText="here"
-              textBeforeLink="Submit a request or offer"
+              textBeforeLink="Submit a need or offer"
               variant="info"
             />
           </Col>

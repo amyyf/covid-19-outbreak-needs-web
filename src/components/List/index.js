@@ -17,7 +17,7 @@ export default function List (props) {
   const title = type[0].toUpperCase() + type.slice(1);
   const typeConvert = {};
   typeConvert[offerString] = 'offers';
-  typeConvert[requestString] = 'requests';
+  typeConvert[requestString] = 'needs';
 
   const [category, setCategory] = useState('All');
   const [data, setData] = useState(null);
