@@ -14,25 +14,23 @@ export default function Listing (props) {
   } = props;
 
   let symbol, variant;
-  if (type === 'requests') {
-    symbol = 'R';
+  if (type === 'needs') {
+    symbol = 'Need';
     variant = "warning"
   }
   if (type === 'offers') {
-    symbol = 'O';
+    symbol = 'Offer';
     variant = "success";
   }
   const symbolWrapper = (
-    <Badge variant={variant}>{symbol}</Badge> 
+    <Badge variant={variant} className="mr-1">{symbol}</Badge> 
   );
 
   return (
     <ListGroup.Item>
       <p>{symbolWrapper} {description}</p>
-      <p className="text-secondary">
-        <span className="pr-4">{location}</span>
-        <span>Category: {category}</span>
-      </p>
+      <p className="mb-0"><span className="text-secondary">Category:</span> {category}</p>
+      <p className="mb-0"><span className="text-secondary">Location:</span> {location}</p>
     </ListGroup.Item>
   )
 }

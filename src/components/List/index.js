@@ -14,10 +14,9 @@ export default function List (props) {
     requestString,
     type
    } = props;
-  const title = type[0].toUpperCase() + type.slice(1);
   const typeConvert = {};
   typeConvert[offerString] = 'offers';
-  typeConvert[requestString] = 'requests';
+  typeConvert[requestString] = 'needs';
 
   const [category, setCategory] = useState('All');
   const [data, setData] = useState(null);
@@ -40,8 +39,7 @@ export default function List (props) {
 
   return (
     <>
-    <h3>{title}</h3>
-    <p>Optionally filter by category</p>
+    <p className="font-weight-bold">Categories</p>
     <Toggle
       handleChange={setCategory}
       options={categories}
