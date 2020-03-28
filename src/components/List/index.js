@@ -29,7 +29,7 @@ export default function List (props) {
   // before data has returned - any condition other than an empty array
   if (!data) {
     return <Message
-      spinner={true}
+      spinner
       text="Loading"
     />
   }
@@ -50,7 +50,6 @@ export default function List (props) {
     {
       !filteredDataByCategory.length &&
       <Message
-        spinner={false}
         text="No results"
       />
     }
