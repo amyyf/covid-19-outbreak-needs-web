@@ -23,7 +23,7 @@ export default function Listing (props) {
     variant = "success";
   }
   const symbolWrapper = (
-    <Badge variant={variant}>{symbol}</Badge> 
+    <Badge variant={variant} className="mr-1">{symbol}</Badge> 
   );
 
   return (
