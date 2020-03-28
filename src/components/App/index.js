@@ -8,7 +8,7 @@ import Toggle from '../Toggle';
 
 function App() {
   const formLink = 'https://docs.google.com/forms/d/1j_Cha4mhNiegs8mDWGcPGQczYlMxnzYiQw8uKAK7ujY/viewform?edit_requested=true#responses';
-  const responseLink = '/#';
+  const responseEmail = 'tktktk';
   const categories = ['All', 'Food', 'Childcare', 'Academic', 'Misc.'];
   const offerString = 'Offering something';
   const requestString = 'Request for something';
@@ -31,7 +31,7 @@ function App() {
         </Button>
         <Button
           className="mb-3"
-          href={responseLink}
+          href={`mailto:${responseEmail}`}
           variant="outline-secondary"
         >
           Email us to respond to a listing
@@ -52,7 +52,7 @@ function App() {
       />
       <Button
         className="mb-3"
-        href={responseLink}
+        href={`mailto:${responseEmail}`}
         variant="outline-secondary"
       >
         Email us to respond to a listing
