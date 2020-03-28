@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Spinner from 'react-bootstrap/Spinner';
 
@@ -19,4 +20,13 @@ export default function Message (props) {
       }
     </div>
   )
+}
+
+Message.defaultProps = {
+  spinner: false
+}
+
+Message.propTypes = {
+  spinner: PropTypes.bool,
+  text: PropTypes.string.isRequired
 }
