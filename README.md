@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and is hosted on [Firebase](https://firebase.google.com/docs/hosting/quickstart).
 
 ## Available Scripts
 
@@ -11,6 +13,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
+
+### `npm run deploy`
+
+Deploys the app to Firebase.
 
 ### `npm test`
 
