@@ -24,7 +24,7 @@ You will also see any lint errors in the console.
 
 ### `npm run deploy`
 
-Deploys the app to Firebase. Note the CLI will need to be [installed](https://firebase.google.com/docs/hosting/quickstart#install-cli) and the project [initialized](https://firebase.google.com/docs/hosting/quickstart#initialize) before deployment is possible.
+Runs the build command and then deploys the app to Firebase. Note the CLI will need to be [installed](https://firebase.google.com/docs/hosting/quickstart#install-cli) and the project [initialized](https://firebase.google.com/docs/hosting/quickstart#initialize) before deployment is possible.
 
 ### `npm test`
 
