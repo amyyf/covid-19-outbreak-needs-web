@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { uid } from 'react-uid';
 
 import api from '../../api';
 import Listing from '../Listing';
@@ -57,7 +58,7 @@ export default function List (props) {
         {filteredDataByCategory.map(listing => <Listing
           category={listing.category}
           description={listing.details}
-          key={listing.location}
+          key={uid(listing)}
           location={listing.location}
           type={typeConvert[listing.type]}
         />)}
