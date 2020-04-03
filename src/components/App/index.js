@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Container from 'react-bootstrap/Container'
 import Form from '../Form';
 import ListWrapper from '../ListWrapper';
-
 import config from '../../config.json';
 
 export default function App () {
@@ -13,12 +12,7 @@ export default function App () {
     offerString,
     requestString
   } = config;
-  const [path, setPath] = useState(window.location.pathname);
-
-  const handleClick = (path) => {
-    setPath(path);
-    window.location.assign(path);
-  }
+  const path = window.location.pathname;
 
   return (
     <Container className="App">
@@ -34,7 +28,6 @@ export default function App () {
         path === '/' &&
         <ListWrapper
           categories = {categories}
-          handleClick={handleClick}
           offerString = {offerString}
           requestString = {requestString}
           responseEmail={responseEmail}

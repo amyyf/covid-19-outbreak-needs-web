@@ -9,7 +9,6 @@ import Toggle from '../Toggle';
 export default function ListWrapper(props) {
   const {
     categories,
-    handleClick,
     offerString,
     requestString,
     responseEmail
@@ -22,7 +21,7 @@ export default function ListWrapper(props) {
       <div className="border-bottom mb-3">
         <Button
           className="mr-2 mb-3"
-          onClick={() => handleClick('/submit')}
+          href={'/submit'}
           variant="outline-secondary"
         >
           Submit a need or offer
