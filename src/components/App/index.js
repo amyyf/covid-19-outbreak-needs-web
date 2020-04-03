@@ -8,7 +8,6 @@ import List from '../List';
 import Toggle from '../Toggle';
 
 function App() {
-  // TODO: update responseEmail in config
   const {
     formLink,
     responseEmail,
@@ -21,9 +20,9 @@ function App() {
 
   return (
     <Container className="App">
-      <header className="border-bottom mb-3">
-        <h1>LMCC Community Assistance</h1>
-        <p className="lead">A place to offer and ask for help</p>
+      <header className="border-bottom mb-3 mt-3">
+        <h1>LMCC Needs/Provides Forum</h1>
+        <p className="lead">A place for the <a href="https://www.lowermanhattanchurch.com/">Lower Manhattan Community Church</a> community to share and meet our needs</p>
       </header>
       <div className="border-bottom mb-3">
         <Button
