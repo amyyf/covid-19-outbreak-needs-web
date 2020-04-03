@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
-import './App.css';
+
+import Container from 'react-bootstrap/Container'
+import Form from '../Form';
+import ListWrapper from '../ListWrapper';
 
 import config from '../../config.json';
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import List from '../List';
-import Toggle from '../Toggle';
 
-function App() {
+export default function App () {
   const {
-    formLink,
     responseEmail,
     categories,
     offerString,
     requestString
   } = config;
-  const toggleOptions = ['all', 'needs', 'offers'];
-  const [type, setType] = useState('all');
+  const [path, setPath] = useState(window.location.pathname);
+
+  const handleClick = (path) => {
+    setPath(path);
+    window.location.assign(path);
+  }
 
   return (
     <Container className="App">
@@ -24,44 +26,20 @@ function App() {
         <h1>LMCC Needs/Provides Forum</h1>
         <p className="lead">A place for the <a href="https://www.lowermanhattanchurch.com/">Lower Manhattan Community Church</a> community to share and meet our needs</p>
       </header>
-      <div className="border-bottom mb-3">
-        <Button
-          className="mr-2 mb-3"
-          href={formLink}
-          variant="outline-secondary"
-        >
-          Submit a need or offer
-        </Button>
-        <Button
-          className="mb-3"
-          href={`mailto:${responseEmail}`}
-          variant="outline-secondary"
-        >
-          Email us to respond to a listing
-        </Button>
-      </div>
-      <h2>Listings</h2>
-      <Toggle
-        handleChange={setType}
-        options={toggleOptions}
-        prependOptionText="See "
-        selected={type}
-      />
-      <List
-        categories={categories}
-        offerString={offerString}
-        requestString={requestString}
-        type={type}
-      />
-      <Button
-        className="mb-3"
-        href={`mailto:${responseEmail}`}
-        variant="outline-secondary"
-      >
-        Email us to respond to a listing
-      </Button>
+      {
+        path === '/submit' &&
+        <Form />
+      }
+      {
+        path === '/' &&
+        <ListWrapper
+          categories = {categories}
+          handleClick={handleClick}
+          offerString = {offerString}
+          requestString = {requestString}
+          responseEmail={responseEmail}
+        />
+      }
     </Container>
   );
 }
-
-export default App;
