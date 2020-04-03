@@ -1,6 +1,13 @@
 {
-  "responseEmail": "marci@lowermanhattanchurch.com",
-  "categories": ["All", "Food", "Childcare", "Academic", "Misc."],
-  "offerString": "Offering something",
-  "requestString": "Request for something"
+  "categories": ["all", "food", "goods", "services", "misc"],
+  "displayTitles": {
+    "all": "All",
+    "food": "Food and Basic Needs",
+    "goods": "Goods for Sale or Exchange",
+    "services": "Services",
+    "misc": "Misc."
+  },
+  "offerString": "I am providing something",
+  "requestString": "I am in need of something",
+  "responseEmail": "marci@lowermanhattanchurch.com"
 }

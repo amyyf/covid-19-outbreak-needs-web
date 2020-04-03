@@ -7,10 +7,11 @@ import config from '../../config.json';
 
 export default function App () {
   const {
-    responseEmail,
     categories,
+    displayTitles,
     offerString,
-    requestString
+    requestString,
+    responseEmail
   } = config;
   const path = window.location.pathname;
 
@@ -27,9 +28,10 @@ export default function App () {
       {
         path === '/' &&
         <ListWrapper
-          categories = {categories}
-          offerString = {offerString}
-          requestString = {requestString}
+          categories={categories}
+          displayTitles={displayTitles}
+          offerString={offerString}
+          requestString={requestString}
           responseEmail={responseEmail}
         />
       }

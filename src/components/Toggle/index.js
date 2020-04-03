@@ -6,6 +6,7 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 
 export default function Toggle (props) {
   const {
+    displayText,
     handleChange,
     options,
     prependOptionText,
@@ -26,7 +27,7 @@ export default function Toggle (props) {
           key={`radio-${option}`}
           id={option}
           name="type"
-          value={option}
+          value={displayText ? displayText[option] : option}
           variant="light"
         >
           {prependOptionText + option}

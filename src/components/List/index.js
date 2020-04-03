@@ -11,6 +11,7 @@ import Toggle from '../Toggle';
 export default function List (props) {
   const { 
     categories,
+    displayTitles,
     offerString,
     requestString,
     type
@@ -42,6 +43,7 @@ export default function List (props) {
     <>
     <p className="font-weight-bold">Categories</p>
     <Toggle
+      displayTitles={displayTitles}
       handleChange={setCategory}
       options={categories}
       selected={category}
@@ -58,6 +60,7 @@ export default function List (props) {
         {filteredDataByCategory.map(listing => <Listing
           category={listing.category}
           description={listing.details}
+          displayTitle={displayTitles[listing.category]}
           key={uid(listing)}
           location={listing.location}
           type={typeConvert[listing.type]}

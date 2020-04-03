@@ -9,6 +9,7 @@ import Toggle from '../Toggle';
 export default function ListWrapper(props) {
   const {
     categories,
+    displayTitles,
     offerString,
     requestString,
     responseEmail
@@ -22,14 +23,14 @@ export default function ListWrapper(props) {
         <Button
           className="mr-2 mb-3"
           href={'/submit'}
-          variant="outline-secondary"
+          variant="outline-info"
         >
           Submit a need or offer
         </Button>
         <Button
           className="mb-3"
           href={`mailto:${responseEmail}`}
-          variant="outline-secondary"
+          variant="outline-info"
         >
           Email us to respond to a listing
         </Button>
@@ -43,6 +44,7 @@ export default function ListWrapper(props) {
       />
       <List
         categories={categories}
+        displayTitles={displayTitles}
         offerString={offerString}
         requestString={requestString}
         type={type}
@@ -50,7 +52,7 @@ export default function ListWrapper(props) {
       <Button
         className="mb-3"
         href={`mailto:${responseEmail}`}
-        variant="outline-secondary"
+        variant="outline-info"
       >
         Email us to respond to a listing
       </Button>
