@@ -40,12 +40,15 @@ export default function ListWrapper() {
         </Button>
       </div>
       <h2>Listings</h2>
-      <Toggle
-        displayTitles={filterDisplayTitles}
-        handleChange={setType}
-        options={filters}
-        selected={type}
-      />
+      <section>
+        <h3 class="sr-only sr-only-focusable">Types</h3>
+        <Toggle
+          displayTitles={filterDisplayTitles}
+          handleChange={setType}
+          options={filters}
+          selected={type}
+        />
+      </section>
       <List
         categories={categories}
         categoryDisplayTitles={categoryDisplayTitles}

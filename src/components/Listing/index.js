@@ -24,14 +24,14 @@ export default function Listing (props) {
     symbol = 'Offer';
     variant = "success";
   }
-  const symbolWrapper = (
-    <Badge variant={variant} className="mr-1">{symbol}</Badge> 
-  );
 
   return (
     <ListGroup.Item>
       <section>
-        <h4>{symbolWrapper} <span>{summary}</span></h4>
+        <h4>
+          <Badge variant={variant} className="mr-1">{symbol}</Badge>
+          <span>{summary}</span>
+        </h4>
         { details && <p>{details}</p> }
         <p className="mb-0"><span className="text-secondary">Category:</span> {displayTitle}</p>
         <p className="mb-0"><span className="text-secondary">Location:</span> {location}</p>
