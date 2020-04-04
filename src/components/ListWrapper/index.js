@@ -5,18 +5,21 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import List from '../List';
 import Toggle from '../Toggle';
+import config from '../../config';
 
-export default function ListWrapper(props) {
+export default function ListWrapper() {
   const {
     categories,
     categoryDisplayTitles,
+    categoryKeys,
     filters,
     filterDisplayTitles,
+    filterKeys,
     offerString,
     requestString,
     responseEmail
-  } = props;
-  const [type, setType] = useState('all');
+  } = config;
+  const [type, setType] = useState(filterKeys.all);
 
   return (
     <Container className="ListWrapper">
@@ -46,6 +49,8 @@ export default function ListWrapper(props) {
       <List
         categories={categories}
         categoryDisplayTitles={categoryDisplayTitles}
+        categoryKeys={categoryKeys}
+        filterKeys={filterKeys}
         offerString={offerString}
         requestString={requestString}
         type={type}

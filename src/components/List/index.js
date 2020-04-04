@@ -12,15 +12,17 @@ export default function List (props) {
   const { 
     categories,
     categoryDisplayTitles,
+    categoryKeys,
+    filterKeys,
     offerString,
     requestString,
     type
    } = props;
   const typeConvert = {};
-  typeConvert[offerString] = 'offers';
-  typeConvert[requestString] = 'needs';
+  typeConvert[offerString] = filterKeys.offers;
+  typeConvert[requestString] = filterKeys.needs;
 
-  const [category, setCategory] = useState('all');
+  const [category, setCategory] = useState(categoryKeys.all);
   const [data, setData] = useState(null);
   useEffect(() => {
     api.getData()
@@ -35,8 +37,8 @@ export default function List (props) {
     />
   }
 
-  const filteredData = type === 'all' ? data : data.filter(listing => typeConvert[listing.type] === type);
-  const filteredDataByCategory = category === 'all' ? filteredData : filteredData.filter(listing => listing.category === category);
+  const filteredData = type === filterKeys.all ? data : data.filter(listing => typeConvert[listing.type] === type);
+  const filteredDataByCategory = category === categoryKeys.all ? filteredData : filteredData.filter(listing => listing.category === category);
   filteredDataByCategory.sort((a, b) => a.timestamp > b.timestamp ? 1 : -1);
 
   return (
