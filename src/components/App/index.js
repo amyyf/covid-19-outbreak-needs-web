@@ -17,7 +17,9 @@ export default function App () {
     <Container className="App">
       <header className="border-bottom mb-3 mt-3">
         <h1>LMCC Needs/Provides Forum</h1>
-        <p className="lead">A place for the <a className="info" href="https://www.lowermanhattanchurch.com/" target="_blank" rel="noopener noreferrer">Lower Manhattan Community Church</a> community to share and meet our needs</p>
+        {/* Not adding `noreferrer` so LMCC analytics see this site as the referrer */}
+        {/* eslint-disable-next-line react/jsx-no-target-blank */}
+        <p className="lead">A place for the <a className="info" href="https://www.lowermanhattanchurch.com/" target="_blank" rel="noopener">Lower Manhattan Community Church</a> community to share and meet our needs</p>
       </header>
       {
         path === '/submit' &&
