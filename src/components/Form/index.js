@@ -2,26 +2,38 @@ import React from 'react';
 import config from '../../config';
 
 import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
 
 export default function Form () {
   const {
     formData: {
-      height,
-      src,
-      width
+      breakpoint,
+      desktopHeight,
+      desktopWidth,
+      mobileHeight,
+      mobileWidth,
+      src
     }
   } = config;
+  const screenWidth = window.innerWidth;
+  const displayWidth = screenWidth < breakpoint ? mobileWidth : desktopWidth;
+  const displayHeight = screenWidth < breakpoint ? mobileHeight : desktopHeight;
+  console.log(displayHeight)
+
   return (
-    <Container>
-      <iframe src={src} width={width} height={height} frameBorder="0" marginHeight="0" marginWidth="0" title="Needs/Provides Submission Form">Loading…</iframe>
+    <>
+      <div id="scroll-location" />
+      <div style={{ height: displayHeight + 'px' }}>
+        <div className="iframe-wrapper">
+          <iframe src={src} width={displayWidth} height={displayHeight} frameBorder="0" marginHeight="0" marginWidth="0" title="Needs/Provides Submission Form" onLoad={() => window.parent.parent.document.getElementById('scroll-location').scrollIntoView()}>Loading…</iframe>
+        </div>
+      </div>
       <Button
-        className="mr-2 mb-3"
+        className="mr-2 mb-3 d-block"
         href={'/'}
         variant="info"
       >
         Return to the listings page
       </Button>
-    </Container>
+    </>
   );
 }
