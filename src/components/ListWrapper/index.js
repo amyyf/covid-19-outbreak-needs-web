@@ -22,7 +22,7 @@ export default function ListWrapper() {
     <div className="ListWrapper">
       <h2>Listings</h2>
       <section>
-        <h3 className="sr-only sr-only-focusable">Types</h3>
+        <h3 className="sr-only">Types</h3>
         <Toggle
           displayTitles={filterDisplayTitles}
           handleChange={setType}
