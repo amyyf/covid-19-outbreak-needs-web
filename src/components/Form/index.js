@@ -17,7 +17,6 @@ export default function Form () {
   const screenWidth = window.innerWidth;
   const displayWidth = screenWidth < breakpoint ? mobileWidth : desktopWidth;
   const displayHeight = screenWidth < breakpoint ? mobileHeight : desktopHeight;
-  console.log(displayHeight)
 
   return (
     <>
