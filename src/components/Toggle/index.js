@@ -6,10 +6,9 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 
 export default function Toggle (props) {
   const {
-    displayText,
+    displayTitles,
     handleChange,
     options,
-    prependOptionText,
     selected
   } = props;
 
@@ -27,10 +26,10 @@ export default function Toggle (props) {
           key={`radio-${option}`}
           id={option}
           name="type"
-          value={displayText ? displayText[option] : option}
+          value={option}
           variant="light"
         >
-          {prependOptionText + option}
+          {displayTitles[option]}
         </ToggleButton>
       ))}
     </ToggleButtonGroup>
@@ -38,13 +37,10 @@ export default function Toggle (props) {
   )
 }
 
-Toggle.defaultProps = {
-  prependOptionText: ''
-}
-
 Toggle.propTypes = {
+  // displayTitles is a map that uses `options` as the keys
+  displayTitles: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
   options: PropTypes.array.isRequired,
-  prependOptionText: PropTypes.string,
   selected: PropTypes.string.isRequired
 }

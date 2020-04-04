@@ -1,11 +1,17 @@
 {
   "categories": ["all", "food", "goods", "services", "misc"],
-  "displayTitles": {
+  "categoryDisplayTitles": {
     "all": "All",
     "food": "Food and Basic Needs",
     "goods": "Goods for Sale or Exchange",
     "services": "Services",
     "misc": "Misc."
+  },
+  "filters": ["all", "needs", "offers"],
+  "filterDisplayTitles": {
+    "all": "See all",
+    "needs": "See needs",
+    "offers": "See offers"
   },
   "offerString": "I am providing something",
   "requestString": "I am in need of something",

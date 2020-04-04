@@ -8,7 +8,9 @@ import config from '../../config.json';
 export default function App () {
   const {
     categories,
-    displayTitles,
+    categoryDisplayTitles,
+    filters,
+    filterDisplayTitles,
     offerString,
     requestString,
     responseEmail
@@ -29,7 +31,9 @@ export default function App () {
         path === '/' &&
         <ListWrapper
           categories={categories}
-          displayTitles={displayTitles}
+          categoryDisplayTitles={categoryDisplayTitles}
+          filters={filters}
+          filterDisplayTitles={filterDisplayTitles}
           offerString={offerString}
           requestString={requestString}
           responseEmail={responseEmail}

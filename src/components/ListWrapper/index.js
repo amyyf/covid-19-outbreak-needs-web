@@ -9,12 +9,13 @@ import Toggle from '../Toggle';
 export default function ListWrapper(props) {
   const {
     categories,
-    displayTitles,
+    categoryDisplayTitles,
+    filters,
+    filterDisplayTitles,
     offerString,
     requestString,
     responseEmail
   } = props;
-  const toggleOptions = ['all', 'needs', 'offers'];
   const [type, setType] = useState('all');
 
   return (
@@ -37,14 +38,14 @@ export default function ListWrapper(props) {
       </div>
       <h2>Listings</h2>
       <Toggle
+        displayTitles={filterDisplayTitles}
         handleChange={setType}
-        options={toggleOptions}
-        prependOptionText="See "
+        options={filters}
         selected={type}
       />
       <List
         categories={categories}
-        displayTitles={displayTitles}
+        categoryDisplayTitles={categoryDisplayTitles}
         offerString={offerString}
         requestString={requestString}
         type={type}

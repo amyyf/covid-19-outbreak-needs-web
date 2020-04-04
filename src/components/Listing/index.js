@@ -7,8 +7,8 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 export default function Listing (props) {
   const {
-    category,
     description,
+    displayTitle,
     location,
     type
   } = props;
@@ -29,15 +29,15 @@ export default function Listing (props) {
   return (
     <ListGroup.Item>
       <p>{symbolWrapper} {description}</p>
-      <p className="mb-0"><span className="text-secondary">Category:</span> {category}</p>
+      <p className="mb-0"><span className="text-secondary">Category:</span> {displayTitle}</p>
       <p className="mb-0"><span className="text-secondary">Location:</span> {location}</p>
     </ListGroup.Item>
   )
 }
 
 Listing.propTypes = {
-  category: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  displayTitle: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired
 }

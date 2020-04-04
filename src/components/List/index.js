@@ -11,7 +11,7 @@ import Toggle from '../Toggle';
 export default function List (props) {
   const { 
     categories,
-    displayTitles,
+    categoryDisplayTitles,
     offerString,
     requestString,
     type
@@ -20,7 +20,7 @@ export default function List (props) {
   typeConvert[offerString] = 'offers';
   typeConvert[requestString] = 'needs';
 
-  const [category, setCategory] = useState('All');
+  const [category, setCategory] = useState('all');
   const [data, setData] = useState(null);
   useEffect(() => {
     api.getData()
@@ -36,14 +36,14 @@ export default function List (props) {
   }
 
   const filteredData = type === 'all' ? data : data.filter(listing => typeConvert[listing.type] === type);
-  const filteredDataByCategory = category === 'All' ? filteredData : filteredData.filter(listing => listing.category === category);
+  const filteredDataByCategory = category === 'all' ? filteredData : filteredData.filter(listing => listing.category === category);
   filteredDataByCategory.sort((a, b) => a.timestamp > b.timestamp ? 1 : -1);
 
   return (
     <>
     <p className="font-weight-bold">Categories</p>
     <Toggle
-      displayTitles={displayTitles}
+      displayTitles={categoryDisplayTitles}
       handleChange={setCategory}
       options={categories}
       selected={category}
@@ -51,7 +51,7 @@ export default function List (props) {
     {
       !filteredDataByCategory.length &&
       <Message
-        text="No results"
+        text={`No listings in ${categoryDisplayTitles[category]}`}
       />
     }
     {
@@ -60,7 +60,7 @@ export default function List (props) {
         {filteredDataByCategory.map(listing => <Listing
           category={listing.category}
           description={listing.details}
-          displayTitle={displayTitles[listing.category]}
+          displayTitle={categoryDisplayTitles[listing.category]}
           key={uid(listing)}
           location={listing.location}
           type={typeConvert[listing.type]}
