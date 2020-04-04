@@ -1,13 +1,45 @@
+a.info:hover {
+  color: #138496;
+}
+
 .btn-info {
   background-color: #16586d;
   border-color: #16586d;
   color: white;
 }
 
+.btn-outline-info {
+  border-color: #16586d;
+  color: #16586d;
+}
+
+.btn-outline-info:hover {
+  background-color: #16586d;
+  border-color: #16586d;
+  color: white;
+}
+
+.floating-button {
+  border-radius: 50%;
+  bottom: 2rem;
+  padding: 0.4rem 0.5rem;
+  position: fixed;
+  right: 2rem;
+  z-index: 5;
+}
+
+.floating-button > .icon {
+  height: 100%;
+}
+
+.icon {
+  height: 1rem;
+}
+
 .info {
   color: #16586d;
 }
 
-.info:hover {
-  color: #138496;
+.inline-icon {
+  background-color: #16586d;
 }
