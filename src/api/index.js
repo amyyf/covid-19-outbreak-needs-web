@@ -5,7 +5,8 @@ const renameKeys = {
   'General location': 'location',
   'Type': 'type',
   'Category': 'category',
-  'Details': 'details'
+  'Details': 'details',
+  'Summary': 'summary'
 };
 
 function fetchData () {
