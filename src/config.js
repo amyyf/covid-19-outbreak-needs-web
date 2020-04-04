@@ -29,7 +29,7 @@ const config = {
   },
   filterKeys: filterKeys,
   "formData": {
-    "breakpoint": "700",
+    "breakpoint": "640",
     "desktopHeight": "1965",
     "desktopWidth": "640",
     "mobileHeight": "2347",
