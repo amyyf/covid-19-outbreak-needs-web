@@ -29,9 +29,12 @@ const config = {
   },
   filterKeys: filterKeys,
   "formData": {
-    "height": "1965",
+    "breakpoint": "640",
+    "desktopHeight": "1965",
+    "desktopWidth": "640",
+    "mobileHeight": "2347",
+    "mobileWidth": "320",
     "src": "https://docs.google.com/forms/d/e/1FAIpQLSc6l6ESk_hkej-impsmXuwuIxfHvUw7_t78mXD3NvNOESeDkg/viewform?embedded=true",
-    "width": "640"
   },
   "offerString": "I am providing something",
   "requestString": "I am in need of something",
