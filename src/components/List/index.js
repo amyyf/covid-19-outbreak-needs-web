@@ -43,7 +43,7 @@ export default function List (props) {
 
   return (
     <>
-    <p className="font-weight-bold">Categories</p>
+    <h3>Categories</h3>
     <Toggle
       displayTitles={categoryDisplayTitles}
       handleChange={setCategory}
@@ -61,10 +61,11 @@ export default function List (props) {
       <ListGroup className="mb-3">
         {filteredDataByCategory.map(listing => <Listing
           category={listing.category}
-          description={listing.details}
+          details={listing.details}
           displayTitle={categoryDisplayTitles[listing.category]}
           key={uid(listing)}
           location={listing.location}
+          summary={listing.summary}
           type={typeConvert[listing.type]}
         />)}
       </ListGroup>
