@@ -24,14 +24,14 @@ export default function ListWrapper(props) {
         <Button
           className="mr-2 mb-3"
           href={'/submit'}
-          variant="outline-info"
+          variant="info"
         >
           Submit a need or offer
         </Button>
         <Button
           className="mb-3"
           href={`mailto:${responseEmail}`}
-          variant="outline-info"
+          variant="info"
         >
           Email us to respond to a listing
         </Button>
@@ -53,7 +53,7 @@ export default function ListWrapper(props) {
       <Button
         className="mb-3"
         href={`mailto:${responseEmail}`}
-        variant="outline-info"
+        variant="info"
       >
         Email us to respond to a listing
       </Button>

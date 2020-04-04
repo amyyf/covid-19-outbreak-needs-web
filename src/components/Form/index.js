@@ -10,7 +10,7 @@ export default function Form () {
       <Button
         className="mr-2 mb-3"
         href={'/'}
-        variant="outline-info"
+        variant="info"
       >
         Return to the listings page
       </Button>
